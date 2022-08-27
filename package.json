@@ -1,0 +1,23 @@
+{
+  "name": "goit-js-hw-08-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel src./index.html",
+    "build": "parcel build src./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/andrii-pozniak/goit-js-hw-08)"
+  },
+  "author": "Andrii Pozniak",
+  "license": "ISC",
+  "dependencies": {
+    "simple-lightbox": "^2.1.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}
