@@ -169,6 +169,47 @@ var _galleryItems = require("./gallery-items");
 
 // Add imports above this line
 // Change code below this line
+var imgGalleryCard = document.querySelector(".gallery");
+var imgGallery = onCreateImgCard(_galleryItems.galleryItems); // Create card
+
+imgGalleryCard.insertAdjacentHTML("beforeend", imgGallery);
+
+function onCreateImgCard(galleryItems) {
+  return galleryItems.map(function (_ref) {
+    var preview = _ref.preview,
+        original = _ref.original,
+        description = _ref.description;
+    return "\n       <div class=\"gallery__item\">\n         <a class=\"gallery__link\" href=\"".concat(original, "\">\n            <img class=\"gallery__image\"\n            src=\"").concat(preview, "\"\n            data-source=\"").concat(original, "\"\n            alt=\"").concat(description, "\"\n            />\n       </a>\n      </div>\n       ");
+  }).join("");
+}
+
+; // delegation
+
+imgGalleryCard.addEventListener("click", onImgCardClick);
+
+function onImgCardClick(evn) {
+  window.addEventListener("keydown", onEscKeyPress);
+  var isImgCard = evn.target.classList.contains('gallery__image');
+  evn.preventDefault();
+
+  if (!isImgCard) {
+    return;
+  }
+
+  var instance = basicLightbox.create("\n    <img class=\"modal__image\" src=\"".concat(evn.target.dataset.source, "\" width=\"800\" height=\"600\">\n   "));
+  instance.show();
+
+  function onEscKeyPress(event) {
+    if (event.code == "Escape") {
+      instance.close();
+      console.log("\"".concat(event.code, "\""));
+      window.removeEventListener("keydown", onEscKeyPress);
+    }
+
+    return;
+  }
+}
+
 console.log(_galleryItems.galleryItems);
 },{"./gallery-items":"js/gallery-items.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -198,7 +239,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33921" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37247" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
