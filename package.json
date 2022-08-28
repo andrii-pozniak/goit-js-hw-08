@@ -1,5 +1,5 @@
 {
-  "name": "goit-js-hw-08-main",
+  "name": "goit-js-hw-08",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,10 +14,11 @@
   },
   "author": "Andrii Pozniak",
   "license": "ISC",
-  "dependencies": {
-    "simple-lightbox": "^2.1.0"
-  },
   "devDependencies": {
-    "parcel": "^2.7.0"
+    "parcel": "^2.7.0",
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "simplelightbox": "^2.10.3"
   }
 }
